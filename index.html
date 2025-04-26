@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Timer by Mate1208</title>
+     <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+     <div class="container">
+         <h1>Timer by Mate1208</h1>
+ 
+         <div class="time-settings">
+             <label>Minutes: <input type="number" id="minutesInput" min="0" value="10"></label>
+             <label>Seconds: <input type="number" id="secondsInput" min="0" max="59" value="0"></label>
+         </div>
+ 
+         <div id="timerDisplay">
+             <div class="digit" id="minuteTens"><span>1</span></div>
+             <div class="digit" id="minuteOnes"><span>0</span></div>
+             <div class="colon">:</div>
+             <div class="digit" id="secondTens"><span>0</span></div>
+             <div class="digit" id="secondOnes"><span>0</span></div>
+         </div>
+         
+         <div class="buttons">
+             <button id="startButton" class="green">Start</button>
+             <button id="pauseButton" class="orange">Pause</button>
+             <button id="stopButton" class="red">Reset</button>
+         </div>
+     </div>
+ 
+     <audio id="whistleStartSound" src="whistle_start.mp3"></audio>
+     <audio id="whistleEndSound" src="whistle_end.mp3"></audio>
+ 
+     <script src="script.js"></script>
+ </body>
+ </html>

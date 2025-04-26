@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'Technology';
+    src: url('Technology-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #000;
+    color: rgb(255, 255, 255);
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.time-settings {
+    margin-bottom: 20px;
+}
+
+.time-settings input {
+    width: 60px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#timerDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14em;
+    letter-spacing: 10px;
+    margin: 20px 0;
+    font-family: 'Technology', monospace;
+    flex-wrap: wrap; /* 👈 Added for mobile wrapping */
+}
+
+.digit span {
+    font-family: 'Technology', monospace;
+    font-size: 5em;
+    color: black;
+    font-weight: normal;
+}
+
+/* Colon style */
+.colon {
+    font-size: 8em;
+    margin: 0 20px;
+    color: #0f0;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* Button styles */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* 👈 Added for mobile wrapping */
+}
+
+button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    height: 50px;
+    width: 150px;
+}
+
+/* Specific button colors */
+.green {
+    background-color: #28a745;
+}
+
+.orange {
+    background-color: #fd7e14;
+}
+
+.red {
+    background-color: #dc3545;
+}
+
+/* 👇 ADD THIS FOR MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .time-settings input {
+        width: 50px;
+        font-size: 1em;
+    }
+
+    #timerDisplay {
+        font-size: 6em;
+        letter-spacing: 5px;
+        flex-wrap: wrap;
+    }
+
+    .colon {
+        font-size: 4em;
+        margin: 0 10px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        width: 100%;
+        height: 60px;
+        font-size: 1.2em;
+    }
+}
