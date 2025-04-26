@@ -13,6 +13,26 @@ let isPaused = false;
 let isStopped = false;
 let firstInteractionDone = false;
 
+// Populate dropdowns
+function populateDropdowns() {
+    for (let i = 0; i <= 15; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i.toString().padStart(2, '0');
+        minutesInput.appendChild(option);
+    }
+    for (let i = 0; i <= 59; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i.toString().padStart(2, '0');
+        secondsInput.appendChild(option);
+    }
+
+    // Default 10:00
+    minutesInput.value = 10;
+    secondsInput.value = 0;
+}
+
 // Format time like 00:00
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -27,7 +47,6 @@ function updateDisplay() {
 
 // Preload both sounds properly on first interaction
 function preloadSounds() {
-    // Try to play and immediately pause to unlock both
     Promise.all([
         whistleStartSound.play().then(() => {
             whistleStartSound.pause();
@@ -55,8 +74,7 @@ function startTimer() {
         console.log('Start sound blocked:', err);
     });
 
-    // If the timer is already running, do nothing
-    if (timerInterval) return;
+    if (timerInterval) return; // Already running
 
     let minutes = parseInt(minutesInput.value) || 0;
     let seconds = parseInt(secondsInput.value) || 0;
@@ -113,5 +131,6 @@ startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', togglePause);
 stopButton.addEventListener('click', stopAndReset);
 
-// Initialize Display
+// Initialize
+populateDropdowns();
 updateDisplay();
