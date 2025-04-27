@@ -58,6 +58,7 @@ function startTimer() {
     // If the timer is already running, do nothing
     if (timerInterval) return;
 
+    // Get the selected minutes and seconds from the dropdown
     let minutes = parseInt(minutesInput.value) || 0;
     let seconds = parseInt(secondsInput.value) || 0;
     totalSeconds = (minutes * 60) + seconds;

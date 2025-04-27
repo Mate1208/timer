@@ -11,8 +11,35 @@
          <h1>Timer by Mate1208</h1>
  
          <div class="time-settings">
-             <label>Minutes: <input type="number" id="minutesInput" min="0" value="10"></label>
-             <label>Seconds: <input type="number" id="secondsInput" min="0" max="59" value="0"></label>
+            <label>Perc: 
+                <select id="minutesInput">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </label>
+            <label>Másodperc: 
+                <select id="secondsInput">
+                    <option value="0">00</option>
+                    <option value="5">05</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="59">59</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </label>
          </div>
  
          <div id="timerDisplay">

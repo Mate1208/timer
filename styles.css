@@ -21,11 +21,12 @@ body {
 
 h1 {
     margin-bottom: 20px;
-    font-size: 2.5em;
+    font-size: 3em;
 }
 
+/* Time Settings */
 .time-settings {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .time-settings input {
@@ -34,15 +35,16 @@ h1 {
     text-align: center;
 }
 
+/* Timer Display */
 #timerDisplay {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14em;
+    font-size: 16em;
     letter-spacing: 10px;
     margin: 20px 0;
     font-family: 'Technology', monospace;
-    flex-wrap: wrap; /* 👈 Added for mobile wrapping */
+    flex-wrap: wrap; /* Added for mobile wrapping */
 }
 
 .digit span {
@@ -52,7 +54,7 @@ h1 {
     font-weight: normal;
 }
 
-/* Colon style */
+/* Colon Style */
 .colon {
     font-size: 8em;
     margin: 0 20px;
@@ -60,13 +62,13 @@ h1 {
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
 }
 
-/* Button styles */
+/* Button Styles */
 .buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 20px;
-    flex-wrap: wrap; /* 👈 Added for mobile wrapping */
+    flex-wrap: wrap; /* Added for mobile wrapping */
 }
 
 button {
@@ -74,14 +76,14 @@ button {
     padding: 10px 20px;
     margin: 10px;
     border: none;
-    border-radius: 8px;
-    color: #fff;
+    border-radius: 10px;
+    color: #ffffff;
     cursor: pointer;
     height: 50px;
     width: 150px;
 }
 
-/* Specific button colors */
+/* Specific Button Colors */
 .green {
     background-color: #28a745;
 }
@@ -94,14 +96,15 @@ button {
     background-color: #dc3545;
 }
 
-/* 👇 ADD THIS FOR MOBILE RESPONSIVENESS */
-@media (max-width: 600px) {
+/* Mobile Responsiveness 768px*/
+@media (max-width: 100px) {
+    /* Decrease the general font size */
     body {
         padding: 10px;
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 2em;  /* Make the heading smaller */
     }
 
     .container {
@@ -110,21 +113,21 @@ button {
     }
 
     .time-settings input {
-        width: 50px;
-        font-size: 1em;
+        width: 50px; /* Smaller input boxes */
+        font-size: 1.1em;
     }
 
     #timerDisplay {
-        font-size: 6em;
-        letter-spacing: 5px;
-        flex-wrap: wrap;
+        font-size: 10em; /* Smaller timer display */
+        letter-spacing: 5px; /* Reduce letter spacing */
     }
 
     .colon {
-        font-size: 4em;
+        font-size: 6em;  /* Adjust colon size */
         margin: 0 10px;
     }
 
+    /* Buttons Adjustment */
     .buttons {
         flex-direction: column;
         gap: 10px;
@@ -134,5 +137,23 @@ button {
         width: 100%;
         height: 60px;
         font-size: 1.2em;
+    }
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 600px) {
+    /* Further adjustment for very small screens */
+    #timerDisplay {
+        font-size: 12em; /* Further reduce font size for tiny screens */
+    }
+
+    .colon {
+        font-size: 5em;  /* Adjust colon size for smaller screens */
+    }
+
+    button {
+        width: 100%;
+        height: 50px;
+        font-size: 1.1em;
     }
 }
