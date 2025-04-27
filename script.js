@@ -12,6 +12,8 @@ let totalSeconds = 600; // Default 10:00
 let isPaused = false;
 let isStopped = false;
 let firstInteractionDone = false;
+let startTime;
+let pausedTime = 0;
 
 // Format time like 00:00
 function formatTime(seconds) {
@@ -58,12 +60,17 @@ function startTimer() {
     // If the timer is already running, do nothing
     if (timerInterval) return;
 
-    // Get the selected minutes and seconds from the dropdown
-    let minutes = parseInt(minutesInput.value) || 0;
-    let seconds = parseInt(secondsInput.value) || 0;
-    totalSeconds = (minutes * 60) + seconds;
-    updateDisplay();
+    // If the timer is paused, calculate how much time has passed
+    if (!isPaused) {
+        let minutes = parseInt(minutesInput.value) || 0;
+        let seconds = parseInt(secondsInput.value) || 0;
+        totalSeconds = (minutes * 60) + seconds;
+        startTime = Date.now();
+    } else {
+        startTime = Date.now() - pausedTime * 1000;
+    }
 
+    updateDisplay();
     isPaused = false;
     isStopped = false;
     pauseButton.textContent = "Pause";
@@ -71,9 +78,10 @@ function startTimer() {
 
     timerInterval = setInterval(() => {
         if (!isPaused) {
-            totalSeconds--;
+            let elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+            let timeLeft = totalSeconds - elapsedSeconds;
 
-            if (totalSeconds <= 0) {
+            if (timeLeft <= 0) {
                 clearInterval(timerInterval);
                 timerInterval = null;
 
@@ -84,23 +92,36 @@ function startTimer() {
 
                 timerDisplay.textContent = "00:00";
             } else {
-                updateDisplay();
+                timerDisplay.textContent = formatTime(timeLeft);
             }
         }
     }, 1000);
 }
 
+// Toggle Pause functionality
 function togglePause() {
     if (!timerInterval) return;
+
+    if (!isPaused) {
+        // Pausing: calculate how much time has passed
+        pausedTime = Math.floor((Date.now() - startTime) / 1000);
+        clearInterval(timerInterval);
+        timerInterval = null;
+    } else {
+        // Continue: restart the timer with the previous paused time
+        startTimer();
+    }
 
     isPaused = !isPaused;
     pauseButton.textContent = isPaused ? "Continue" : "Pause";
 }
 
+// Stop and Reset functionality
 function stopAndReset() {
     clearInterval(timerInterval);
     timerInterval = null;
     isPaused = false;
+    pausedTime = 0;
 
     totalSeconds = 600;  // Reset to 10:00
     minutesInput.value = 10;
